@@ -24,6 +24,11 @@ if __name__ == "__main__":
     print "Error"
     exit(0)
   file("foo", "w").write(str(payload))
+  projects = cfg.get("projects") 
+  for project in projects:
+    if project["repository"] == payload["repository"]:
+      file("foo", "w").write(project)
+      
   print "Status: 200 OK"
   print
   exit(0)
